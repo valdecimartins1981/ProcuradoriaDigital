@@ -23,6 +23,8 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_UPS
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 # grr, ENTRYPOINT resets CMD now
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
